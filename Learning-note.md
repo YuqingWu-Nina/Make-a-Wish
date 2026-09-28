@@ -48,3 +48,31 @@ Choose a small project idea and a final project name.
 
 - Improved the visual style with patterned backgrounds, layered shadows, decorative frosting piping, textured cake sides, and more detailed pick patterns.
 - Replaced most in-cake emoji artwork with simple text and CSS-drawn patterns, so the topper arrangement feels more like a designed paper set.
+
+## September 27, 2026 — Stick fix and style choice
+
+- Fixed disappearing wooden sticks by separating each pick's patterned artwork from its outer button. The stick now belongs to the outer layer, while clipping only shapes the inner artwork.
+- Tried a generated cake texture, then returned to the lighter emoji-style design because it better matches the playful feel of this project.
+
+## September 28, 2026 — Return to emoji-style reference version
+
+- Restored the earlier single-cake emoji-style composition after testing tiered and bento-cake variations.
+- Kept the separate inner artwork and outer stick structure, so the earlier visual style still benefits from the wooden-stick bug fix.
+
+## September 28, 2026 — Share-link interaction
+
+- Added a **Create share link** button. JavaScript stores the cake choices, preset pick designs, and birthday message in URL parameters.
+- When the link is opened, JavaScript reads those parameters and rebuilds the cake with lit candles. The friend can then click **Make a Wish** to show the message and confetti.
+- A locally uploaded photo is intentionally not included in the link. Without a backend, keeping a photo in the URL would create an unreliable and overly long link.
+
+## September 28, 2026 — Stage-first workshop layout
+
+- Added a short reminder next to the share button explaining that sharing currently includes preset choices and the message, but not local uploaded photos.
+- Replaced the stretched equal-height columns with a stage-first layout. The cake preview has its own intentional height, so it does not gain large empty areas just because the controls are tall.
+- Kept cake styling and topper choices (steps 1–4) beside the preview. Moved the personal photo, message, wish button, and sharing actions into a clearly named finishing section below.
+
+## September 28, 2026 — Compact desktop customizer
+
+- Widened the desktop workspace so the cake choices use the available screen space instead of creating large empty margins at the sides.
+- The flavor choices now use two readable rows, while the cream and topping choices fit on one row. This shortens the left panel without making its choice buttons smaller.
+- Made the six cake-pick buttons a little shorter and reduced section spacing. The left panel now sits much closer to the height of the preview, so the finishing section begins without a large empty gap.

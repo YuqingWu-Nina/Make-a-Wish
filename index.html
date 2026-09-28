@@ -34,18 +34,20 @@
           linear-gradient(130deg, #fffaf2, #fff2f0 54%, #f3edff);
       }
 
-      .page-shell { width: min(1120px, 92%); margin: 0 auto; padding: 3.5rem 0 4rem; }
+      /* A wider desktop canvas gives the choice chips room to stay readable.
+         The buttons keep their friendly size; the extra width simply prevents extra rows. */
+      .page-shell { width: min(1360px, 94%); margin: 0 auto; padding: 3.5rem 0 4rem; }
       header { text-align: center; margin-bottom: 2.7rem; }
       .eyebrow { margin: 0 0 .6rem; color: var(--pink-dark); font-size: .84rem; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; }
       h1 { margin: 0; color: #5a3147; font-family: Georgia, serif; font-size: clamp(2.8rem, 7vw, 4.8rem); letter-spacing: -.05em; line-height: 1; text-shadow: 0 3px #fff, 0 6px #efc7d1; }
       .subtitle { max-width: 560px; margin: 1rem auto 0; font-size: 1.05rem; line-height: 1.55; }
 
-      .maker { display: grid; grid-template-columns: minmax(0, .85fr) minmax(350px, 1.15fr); gap: 1.6rem; align-items: start; }
-      .panel, .cake-stage { border: 1px solid rgba(121, 79, 100, .14); border-radius: 30px; box-shadow: 0 22px 48px rgba(136, 94, 117, .14); }
+      .maker { display: grid; grid-template-columns: minmax(500px, .98fr) minmax(520px, 1.02fr); gap: 1.6rem; align-items: start; }
+      .panel, .cake-stage, .finish-panel { border: 1px solid rgba(121, 79, 100, .14); border-radius: 30px; box-shadow: 0 22px 48px rgba(136, 94, 117, .14); }
       .panel { padding: clamp(1.3rem, 4vw, 2rem); background: rgba(255, 255, 255, .82); backdrop-filter: blur(12px); }
       .panel h2 { margin: 0 0 .45rem; font-family: Georgia, serif; font-size: 1.7rem; }
       .panel-intro { margin: 0 0 1.45rem; line-height: 1.5; }
-      .control-group { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px dashed #e8d5da; }
+      .control-group { margin-top: .95rem; padding-top: .95rem; border-top: 1px dashed #e8d5da; }
       .control-label { display: block; margin-bottom: .65rem; color: #704358; font-family: Georgia, serif; font-weight: bold; }
       .color-options { display: flex; flex-wrap: wrap; gap: .55rem; }
       .color-option { position: relative; cursor: pointer; }
@@ -68,18 +70,38 @@
       button:hover { transform: translateY(-2px); }
       .wish-button { color: #563b49; background: linear-gradient(135deg, #ffd86b, #ffae9d); box-shadow: 0 8px 18px rgba(218, 145, 82, .25); }
       .reset-button { color: var(--ink); background: #f2eafb; }
+      .share-button { color: #fff; background: linear-gradient(135deg, #6d79bd, #9d78bd); box-shadow: 0 8px 18px rgba(109, 91, 164, .2); }
+      .share-limit { align-self: center; max-width: 150px; color: #806675; font-size: .76rem; line-height: 1.25; }
+      .share-box { margin-top: 1rem; padding: .9rem; border: 1px dashed #bca6dc; border-radius: 16px; background: #faf7ff; }
+      .share-box[hidden] { display: none; }
+      .share-box label { display: block; margin-bottom: .45rem; color: #5d4b7f; font-size: .84rem; font-weight: bold; }
+      .share-row { display: flex; gap: .5rem; }
+      .share-link { min-width: 0; flex: 1; padding: .65rem .7rem; border: 1px solid #d7c8e8; border-radius: 10px; color: #5c4c72; background: #fff; font: inherit; font-size: .78rem; }
+      .copy-button { padding: .65rem .8rem; color: #5a4773; background: #e8def6; font-size: .82rem; }
+      .share-status { margin: .55rem 0 0; color: #766487; font-size: .78rem; line-height: 1.35; }
+      .finish-panel { display: grid; grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr); gap: clamp(1.2rem, 4vw, 2.5rem); margin-top: 1.25rem; padding: clamp(1.3rem, 4vw, 2rem); background: rgba(255, 255, 255, .84); }
+      .finish-panel h2 { margin: 0; font-family: Georgia, serif; font-size: 1.65rem; }
+      .finish-panel .panel-intro { margin-bottom: 1rem; }
+      .finish-panel .control-group { margin-top: 0; padding-top: 0; border: 0; }
+      .finish-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
 
-      .cake-stage { position: relative; display: grid; place-items: center; min-height: 630px; overflow: hidden; padding: 2rem 1rem; background: linear-gradient(180deg, #fffdf9, #f9edf0); }
+      .cake-stage { position: relative; display: grid; align-self: center; place-items: center; height: 680px; overflow: hidden; padding: 2rem 1rem; background: linear-gradient(180deg, #fffdf9, #f9edf0); }
       .stage-label { position: absolute; top: 1.3rem; left: 1.5rem; margin: 0; color: var(--pink-dark); font-size: .8rem; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; }
       .cake-scene { position: relative; width: min(100%, 430px); height: 485px; margin-top: 3rem; }
       .preset-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; }
-      .preset-button { min-height: 78px; padding: .5rem; border: 1px solid #eadce2; border-radius: 14px; background: #fff; color: var(--ink); font-size: .78rem; }
+      .preset-button { min-height: 70px; padding: .42rem; border: 1px solid #eadce2; border-radius: 14px; background: #fff; color: var(--ink); font-size: .78rem; }
       .preset-button span { display: block; margin-bottom: .22rem; font-size: 1.45rem; }
       .preset-button:hover { border-color: var(--pink-dark); background: #fff5f7; }
       .spot-help { margin: .45rem 0 0; color: #806675; font-size: .84rem; line-height: 1.4; }
+      .custom-pick-fields { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: .55rem; margin-top: .7rem; }
+      .number-picker, .banner-picker { display: flex; align-items: center; gap: .55rem; margin: 0; color: #704358; font-size: .86rem; font-weight: bold; }
+      .number-picker input, .banner-picker input { min-width: 0; padding: .5rem .65rem; border: 1px solid #d9c8cf; border-radius: 10px; color: var(--ink); background: #fff; font: inherit; }
+      .number-picker input { width: 4.7rem; text-align: center; }
+      .banner-picker input { flex: 1; }
       /* Every cake pick shares a wooden stick, but each pick has its own shape. */
       .decoration-slot { position: absolute; z-index: 4; display: grid; place-items: center; padding: 0; overflow: visible; border: 0; color: #fff; font-family: Georgia, serif; font-weight: bold; line-height: 1; transform: translateX(-50%); }
-      .decoration-slot::after { content: ""; position: absolute; z-index: -1; top: calc(100% - 6px); left: 50%; width: 6px; height: 72px; border-radius: 99px; background: repeating-linear-gradient(45deg, #bd914d 0 5px, #f7dc8a 5px 10px); transform: translateX(-50%); }
+      /* Sticks use their own layer so the frosting can cover their lower ends. */
+      .decoration-slot::after { content: none; }
       .decoration-slot:hover { transform: translateX(-50%) translateY(-3px); }
       .decoration-slot.selected { outline: 4px solid #8c70cb; outline-offset: 5px; }
       .decoration-slot img { width: 100%; height: 100%; object-fit: cover; }
@@ -89,21 +111,26 @@
       .pick-balloon { width: 100px; height: 76px; border: 4px solid #fff; border-radius: 48% 48% 43% 43%; background: radial-gradient(circle at 30% 25%, #fff8, transparent 15%), #7eaade; box-shadow: -21px 13px 0 -7px #f29ab2, 23px 13px 0 -7px #f5d36e; font-size: 2rem; }
       .pick-gift { width: 72px; height: 68px; border: 4px solid #fff; border-radius: 8px; background: linear-gradient(90deg, transparent 43%, #f9d965 43% 57%, transparent 57%), #e67f98; font-size: 1.65rem; }
       .pick-party { width: 92px; height: 78px; border: 4px solid #fff; border-radius: 50% 50% 43% 43%; background: #9f8bd6; box-shadow: inset 0 -12px #7863ad; font-size: 2.2rem; }
-      .pick-photo { width: 82px; height: 82px; overflow: hidden; border: 5px solid #f7d166; border-radius: 50%; background: #fff6d9; }
-      .slot-1 { bottom: 293px; left: 24%; } .slot-2 { bottom: 359px; left: 50%; } .slot-3 { bottom: 303px; left: 77%; }
-      .slot-4 { bottom: 218px; left: 15%; } .slot-5 { bottom: 255px; left: 50%; } .slot-6 { bottom: 216px; left: 84%; }
-      .candle-row { position: absolute; z-index: 5; bottom: 222px; left: 50%; display: flex; gap: 36px; transform: translateX(-50%); }
+      .pick-photo { width: 82px; height: 82px; overflow: visible; border: 5px solid #f7d166; border-radius: 50%; background: #fff6d9; }
+      /* A close back row frames the tall number; a lower front row makes one topper cluster. */
+      .slot-1 { bottom: 293px; left: 31%; } .slot-2 { bottom: 359px; left: 50%; } .slot-3 { bottom: 303px; left: 69%; }
+      .slot-4 { bottom: 218px; left: 34%; } .slot-5 { bottom: 255px; left: 50%; } .slot-6 { bottom: 216px; left: 66%; }
+      .pick-stick-layer { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+      .pick-stick { position: absolute; width: 6px; border-radius: 99px; background: repeating-linear-gradient(45deg, #bd914d 0 5px, #f7dc8a 5px 10px); transform: translateX(-50%); }
+      .stick-1 { top: 186px; left: 31%; height: 90px; } .stick-2 { top: 120px; left: 50%; height: 156px; } .stick-3 { top: 176px; left: 69%; height: 100px; }
+      .stick-4 { top: 261px; left: 34%; height: 15px; } .stick-5 { top: 224px; left: 50%; height: 52px; } .stick-6 { top: 263px; left: 66%; height: 13px; }
+      .candle-row { position: absolute; z-index: 5; bottom: 180px; left: 50%; display: flex; gap: 36px; pointer-events: none; transform: translateX(-50%); }
       .candle { position: relative; width: 13px; height: 58px; border-radius: 8px 8px 2px 2px; background: repeating-linear-gradient(135deg, #fff 0 8px, #c6b2ec 8px 15px); box-shadow: inset -3px 0 rgba(71, 50, 95, .1); }
       .flame { position: absolute; bottom: 52px; left: 50%; width: 20px; height: 30px; border-radius: 60% 40% 60% 40%; background: #ffca45; box-shadow: 0 0 16px 5px rgba(255, 191, 55, .55); transform: translateX(-50%) rotate(-45deg); transform-origin: bottom; animation: flicker 1.1s infinite alternate; }
       .candle.off .flame { opacity: 0; animation: none; transform: translateX(-50%) scale(.2); }
       .smoke { position: absolute; bottom: 57px; left: 50%; width: 10px; height: 20px; border-radius: 50%; background: rgba(142, 129, 147, .35); opacity: 0; transform: translateX(-50%); }
       .candle.off .smoke { animation: smoke 1.2s ease-out; }
       .cake-top, .cake-bottom, .plate { position: absolute; left: 50%; transform: translateX(-50%); }
-      .cake-top { z-index: 2; bottom: 151px; width: 318px; height: 94px; border: 8px solid var(--cream-shadow); border-radius: 50%; background: radial-gradient(circle at 50% 35%, #fff9, transparent 40%), var(--cream-color); box-shadow: inset 0 -12px var(--cream-shadow), 0 5px 0 rgba(91, 60, 74, .08); }
+      .cake-top { z-index: 3; bottom: 151px; width: 318px; height: 94px; border: 8px solid var(--cream-shadow); border-radius: 50%; background: radial-gradient(circle at 50% 35%, #fff9, transparent 40%), var(--cream-color); box-shadow: inset 0 -12px var(--cream-shadow), 0 5px 0 rgba(91, 60, 74, .08); }
       .cake-top::after { content: var(--topping-symbol); position: absolute; top: 25px; left: 50%; width: 95%; color: var(--topping-color); font-size: 1.2rem; letter-spacing: 9px; text-align: center; transform: translateX(-50%); }
       .cake-bottom { z-index: 1; bottom: 35px; width: 318px; height: 158px; border-radius: 28px 28px 48px 48px; background: linear-gradient(90deg, var(--cake-shadow), var(--cake) 18% 82%, var(--cake-shadow)); box-shadow: inset 0 14px #fff7, inset 0 -16px var(--cake-shadow); }
       .cake-bottom::after { content: "✦   ✦   ✦   ✦"; position: absolute; bottom: 27px; left: 0; width: 100%; color: #fff0aa; font-size: 1.15rem; letter-spacing: 11px; text-align: center; }
-      .plate { bottom: 11px; width: 390px; height: 34px; border-radius: 50%; background: #d9d0f0; box-shadow: 0 8px 0 #b9add8; }
+      .plate { z-index: 0; bottom: 11px; width: 390px; height: 34px; border-radius: 50%; background: #d9d0f0; box-shadow: 0 8px 0 #b9add8; }
       .celebration-card { position: absolute; z-index: 8; right: 2rem; bottom: 1.7rem; max-width: 260px; padding: 1rem 1.15rem; border-radius: 16px; color: #6d4354; background: #fff; box-shadow: 0 10px 25px rgba(119, 84, 103, .18); opacity: 0; pointer-events: none; transform: translateY(15px) rotate(2deg); transition: opacity .45s, transform .45s; }
       .celebration-card.show { opacity: 1; transform: translateY(0) rotate(2deg); }
       .celebration-card strong { display: block; margin-bottom: .28rem; color: var(--pink-dark); }
@@ -122,14 +149,33 @@
       .pick-balloon { background: radial-gradient(circle at 30% 25%, #fff8 0 6px, transparent 7px), linear-gradient(135deg, #9dc6ee, #638fc6); box-shadow: -24px 15px 0 -8px #f29ab2, 25px 13px 0 -8px #f5d36e, 0 3px #4975af; font-size: .78rem; letter-spacing: .08em; }
       .pick-gift { width: 76px; height: 70px; background: linear-gradient(90deg, transparent 42%, #f9d965 42% 57%, transparent 57%), linear-gradient(#f190a8 0 45%, #d96d8b 45%); box-shadow: 0 3px #b74c6c; font-size: .66rem; letter-spacing: .08em; }
       .pick-party { width: 96px; height: 80px; background: radial-gradient(circle at 33% 42%, #33263a 0 3px, transparent 4px), radial-gradient(circle at 67% 42%, #33263a 0 3px, transparent 4px), #e6b1c3; box-shadow: inset 0 -13px #cf849d, 0 3px #a85f78; color: #4d3544; font-size: .69rem; letter-spacing: -.05em; text-shadow: none; }
+      /* The pick artwork sits inside the button. This keeps the wooden stick outside
+         the clipped star/banner shape, so it does not disappear after a design changes. */
+      .decoration-slot { overflow: visible !important; background: transparent !important; border: 0 !important; box-shadow: none !important; clip-path: none !important; }
+      .pick-art { position: relative; z-index: 1; display: grid; place-items: center; width: 100%; height: 100%; overflow: visible; }
+      .pick-banner .pick-art { border: 3px solid #fff; background: repeating-linear-gradient(135deg, #4864b4 0 10px, #3651a0 10px 20px); clip-path: polygon(0 0, 100% 0, 91% 50%, 100% 100%, 0 100%, 9% 50%); box-shadow: 0 3px #203676; }
+      .pick-banner .pick-art { padding: .3rem .65rem; font-size: .8rem; line-height: 1.05; overflow: hidden; overflow-wrap: anywhere; text-align: center; }
+      .pick-number .pick-art { border: 5px solid #f7d166; border-radius: 50%; background: radial-gradient(circle at 26% 25%, #fff8 0 4px, transparent 5px), #77b6a5; box-shadow: inset 0 0 0 5px #d8f0d1, 0 3px #4e8a7e; }
+      .pick-star .pick-art { background: repeating-radial-gradient(circle, #ffe67f 0 7px, #f7bd42 8px 13px); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 56%, 79% 93%, 50% 70%, 21% 93%, 32% 56%, 2% 35%, 39% 35%); }
+      .pick-balloon .pick-art { border: 4px solid #fff; border-radius: 48% 48% 43% 43%; background: radial-gradient(circle at 30% 25%, #fff8 0 6px, transparent 7px), linear-gradient(135deg, #9dc6ee, #638fc6); box-shadow: -24px 15px 0 -8px #f29ab2, 25px 13px 0 -8px #f5d36e, 0 3px #4975af; }
+      .pick-gift .pick-art { border: 4px solid #fff; border-radius: 8px; background: linear-gradient(90deg, transparent 42%, #f9d965 42% 57%, transparent 57%), linear-gradient(#f190a8 0 45%, #d96d8b 45%); box-shadow: 0 3px #b74c6c; }
+      .pick-party .pick-art { border: 4px solid #fff; border-radius: 50% 50% 43% 43%; background: radial-gradient(circle at 33% 42%, #33263a 0 3px, transparent 4px), radial-gradient(circle at 67% 42%, #33263a 0 3px, transparent 4px), #e6b1c3; box-shadow: inset 0 -13px #cf849d, 0 3px #a85f78; }
+      .pick-photo .pick-art { overflow: hidden; border: 5px solid #f7d166; border-radius: 50%; background: #fff6d9; }
+      .pick-photo .pick-art img { width: 100%; height: 100%; }
+      /* Only the artwork leans. Each button keeps its stable click target. */
+      .slot-1 .pick-art { transform: rotate(-5deg); transform-origin: 50% 90%; }
+      .slot-3 .pick-art { transform: rotate(5deg); transform-origin: 50% 90%; }
+      .slot-4 .pick-art { transform: rotate(-7deg); transform-origin: 50% 90%; }
+      .slot-6 .pick-art { transform: rotate(7deg); transform-origin: 50% 90%; }
       .cake-top::before { content: "✿  ●  ✿  ●  ✿  ●  ✿"; position: absolute; top: 4px; left: 50%; width: 95%; color: #fffdf5; font-size: 1.4rem; letter-spacing: 7px; text-align: center; text-shadow: 0 2px var(--cream-shadow); transform: translateX(-50%); }
-      .cake-top::after { top: 42px; }
+      .cake-top::after { top: 42px; font-size: 1.2rem; letter-spacing: 9px; }
       .cake-bottom { border: 4px solid #fff6; background: radial-gradient(circle at 15% 25%, #fff4 0 4px, transparent 5px), radial-gradient(circle at 78% 68%, #fff3 0 3px, transparent 4px), linear-gradient(90deg, var(--cake-shadow), var(--cake) 18% 82%, var(--cake-shadow)); box-shadow: inset 0 14px #fff7, inset 0 -16px var(--cake-shadow), 0 8px 12px #81546622; }
       .plate { width: 398px; height: 36px; border: 5px solid #eee9fa; background: linear-gradient(#e4d8f2, #c8b8df); box-shadow: 0 9px 0 #ab9ac3, 0 12px 18px #6b526522; }
       @keyframes flicker { to { transform: translateX(-50%) rotate(-38deg) scale(.88, 1.08); } }
       @keyframes smoke { 0% { opacity: 0; transform: translate(-50%, 0) scale(.4); } 25% { opacity: .55; } 100% { opacity: 0; transform: translate(-80%, -55px) scale(1.5); } }
       @keyframes fall { 0% { opacity: 1; transform: translate(0, -25px) rotate(0); } 100% { opacity: 1; transform: translate(var(--drift), 670px) rotate(520deg); } }
-      @media (max-width: 800px) { .maker { grid-template-columns: 1fr; } .cake-stage { min-height: 560px; } }
+      @media (max-width: 1100px) { .maker { grid-template-columns: minmax(390px, .94fr) minmax(400px, 1.06fr); } }
+      @media (max-width: 900px) { .maker, .finish-panel { grid-template-columns: 1fr; } .cake-stage { height: 600px; min-height: 0; } }
       @media (max-width: 470px) { .page-shell { width: min(94%, 1120px); padding-top: 2.4rem; } .cake-scene { transform: scale(.82); transform-origin: center; margin-bottom: -70px; } .celebration-card { right: 1rem; bottom: 1rem; max-width: 190px; } }
     </style>
   </head>
@@ -143,8 +189,8 @@
 
       <section class="maker" aria-label="Birthday cake maker">
         <section class="panel" aria-labelledby="customize-title">
-          <h2 id="customize-title">Customize your cake</h2>
-          <p class="panel-intro">Choose a flavor, add a favorite photo, then write a birthday wish.</p>
+          <h2 id="customize-title">Style your cake</h2>
+          <p class="panel-intro">Start with the cake itself, then add a topper set in the preview.</p>
 
           <div class="control-group">
             <span class="control-label">1. Pick a cake flavor</span>
@@ -189,39 +235,33 @@
               <button class="preset-button" type="button" data-design="gift" data-label="Gift pick"><span>🎁</span>Gift</button>
               <button class="preset-button" type="button" data-design="party" data-label="Party character"><span>🐱</span>Party pal</button>
             </div>
+            <div class="custom-pick-fields">
+              <label class="number-picker" for="number-input">Number
+                <input id="number-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" value="10" aria-describedby="pick-text-help" />
+              </label>
+              <label class="banner-picker" for="banner-input">Banner text
+                <input id="banner-input" type="text" maxlength="28" value="HAPPY BIRTHDAY" aria-describedby="pick-text-help" />
+              </label>
+            </div>
+            <p class="spot-help" id="pick-text-help">Choose the Number or Banner pick, then personalize its text.</p>
             <p class="spot-help" id="spot-help" aria-live="polite">Pick 1 is selected. Click a cake pick to choose where the next design will go.</p>
           </div>
 
-          <div class="control-group">
-            <label class="control-label" for="photo-input">5. Or upload a personal image</label>
-            <label class="upload-box" for="photo-input">
-              <input id="photo-input" type="file" accept="image/*" />
-              <span><span class="upload-icon">📷</span><strong>Choose an image from your computer</strong><span class="upload-help">Your image stays in this browser.</span></span>
-            </label>
-            <p class="file-status" id="file-status" aria-live="polite">The image will fill the selected cake spot and stays in this browser.</p>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="birthday-message">6. Write a birthday message</label>
-            <textarea id="birthday-message" maxlength="80" placeholder="Hope your day is full of cake and joy!"></textarea>
-            <p class="counter"><span id="character-count">0</span>/80 characters</p>
-          </div>
-
-          <div class="actions">
-            <button class="wish-button" id="wish-button" type="button">✨ Make a Wish</button>
-            <button class="reset-button" id="reset-button" type="button">Make Another Cake</button>
-          </div>
         </section>
 
         <section class="cake-stage" aria-label="Your birthday cake preview">
           <p class="stage-label">Your cake preview</p>
           <div class="cake-scene" id="cake-scene">
-            <button class="decoration-slot slot-1 pick-banner selected" type="button" data-slot="1" aria-label="Birthday banner cake pick 1, selected">HAPPY<br />BIRTHDAY</button>
-            <button class="decoration-slot slot-2 pick-number" type="button" data-slot="2" aria-label="10th birthday number cake pick 2">10</button>
-            <button class="decoration-slot slot-3 pick-balloon" type="button" data-slot="3" aria-label="Balloon cake pick 3">BALLOONS</button>
-            <button class="decoration-slot slot-4 pick-star" type="button" data-slot="4" aria-label="Star cake pick 4">✦</button>
-            <button class="decoration-slot slot-5 pick-party" type="button" data-slot="5" aria-label="Party cat cake pick 5">=ᵔᴥᵔ=</button>
-            <button class="decoration-slot slot-6 pick-gift" type="button" data-slot="6" aria-label="Gift cake pick 6">FOR<br />YOU</button>
+            <div class="pick-stick-layer" aria-hidden="true">
+              <span class="pick-stick stick-1"></span><span class="pick-stick stick-2"></span><span class="pick-stick stick-3"></span>
+              <span class="pick-stick stick-4"></span><span class="pick-stick stick-5"></span><span class="pick-stick stick-6"></span>
+            </div>
+            <button class="decoration-slot slot-1 pick-banner selected" type="button" data-slot="1" aria-label="Birthday banner cake pick 1, selected"><span class="pick-art">HAPPY<br />BIRTHDAY</span></button>
+            <button class="decoration-slot slot-2 pick-number" type="button" data-slot="2" aria-label="10th birthday number cake pick 2"><span class="pick-art">10</span></button>
+            <button class="decoration-slot slot-3 pick-balloon" type="button" data-slot="3" aria-label="Balloon cake pick 3"><span class="pick-art">🎈</span></button>
+            <button class="decoration-slot slot-4 pick-star" type="button" data-slot="4" aria-label="Star cake pick 4"><span class="pick-art">⭐</span></button>
+            <button class="decoration-slot slot-5 pick-party" type="button" data-slot="5" aria-label="Party cat cake pick 5"><span class="pick-art">🐱</span></button>
+            <button class="decoration-slot slot-6 pick-gift" type="button" data-slot="6" aria-label="Gift cake pick 6"><span class="pick-art">🎀</span></button>
             <div class="candle-row" aria-label="Three birthday candles">
               <div class="candle"><div class="flame"></div><div class="smoke"></div></div>
               <div class="candle"><div class="flame"></div><div class="smoke"></div></div>
@@ -232,6 +272,42 @@
           <div class="celebration-card" id="celebration-card" aria-live="polite"><strong>Wish made! 🎉</strong><span id="celebration-message"></span></div>
         </section>
       </section>
+
+      <section class="finish-panel" aria-labelledby="finish-title">
+        <section>
+          <h2 id="finish-title">Finish your surprise</h2>
+          <p class="panel-intro">Add a personal photo and message, then make the moment ready to share.</p>
+
+          <div class="control-group">
+            <label class="control-label" for="photo-input">5. Or upload a personal image</label>
+            <label class="upload-box" for="photo-input">
+              <input id="photo-input" type="file" accept="image/*" />
+              <span><span class="upload-icon">📷</span><strong>Choose an image from your computer</strong><span class="upload-help">Your image stays in this browser.</span></span>
+            </label>
+            <p class="file-status" id="file-status" aria-live="polite">The image will fill the selected cake spot and stays in this browser.</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="control-group">
+            <label class="control-label" for="birthday-message">6. Write a birthday message</label>
+            <textarea id="birthday-message" maxlength="80" placeholder="Hope your day is full of cake and joy!"></textarea>
+            <p class="counter"><span id="character-count">0</span>/80 characters</p>
+          </div>
+
+          <div class="finish-actions">
+            <button class="wish-button" id="wish-button" type="button">✨ Make a Wish</button>
+            <button class="reset-button" id="reset-button" type="button">Make Another Cake</button>
+            <button class="share-button" id="share-button" type="button">🔗 Create share link</button>
+            <small class="share-limit">Presets and message only for now; uploaded photos stay private.</small>
+          </div>
+          <div class="share-box" id="share-box" hidden>
+            <label for="share-link">Your cake link</label>
+            <div class="share-row"><input class="share-link" id="share-link" readonly /><button class="copy-button" id="copy-button" type="button">Copy</button></div>
+            <p class="share-status" id="share-status" aria-live="polite"></p>
+          </div>
+        </section>
+      </section>
     </main>
 
     <script>
@@ -240,10 +316,17 @@
       const photoInput = document.querySelector('#photo-input');
       const fileStatus = document.querySelector('#file-status');
       const spotHelp = document.querySelector('#spot-help');
+      const numberInput = document.querySelector('#number-input');
+      const bannerInput = document.querySelector('#banner-input');
       const messageInput = document.querySelector('#birthday-message');
       const characterCount = document.querySelector('#character-count');
       const wishButton = document.querySelector('#wish-button');
       const resetButton = document.querySelector('#reset-button');
+      const shareButton = document.querySelector('#share-button');
+      const shareBox = document.querySelector('#share-box');
+      const shareLink = document.querySelector('#share-link');
+      const copyButton = document.querySelector('#copy-button');
+      const shareStatus = document.querySelector('#share-status');
       const cakeScene = document.querySelector('#cake-scene');
       const candles = document.querySelectorAll('.candle');
       const celebrationCard = document.querySelector('#celebration-card');
@@ -266,11 +349,11 @@
       // These small HTML templates give each cake pick a different cut-out design.
       const pickDesigns = {
         banner: 'HAPPY<br />BIRTHDAY',
-        balloon: 'BALLOONS',
-        star: '✦',
+        balloon: '🎈',
+        star: '⭐',
         number: '10',
-        gift: 'FOR<br />YOU',
-        party: '=ᵔᴥᵔ='
+        gift: '🎀',
+        party: '🐱'
       };
       const defaultDesigns = ['banner', 'number', 'balloon', 'star', 'party', 'gift'];
       const creams = {
@@ -286,12 +369,63 @@
         crumbs: ['"✦  ·  ✦  ·  ✦"', '#b77d52']
       };
 
+      // These small functions make one choice update both the selected button and the cake.
+      function setFlavor(value) {
+        if (!flavors[value]) return;
+        const colors = flavors[value];
+        document.documentElement.style.setProperty('--cake', colors[0]);
+        document.documentElement.style.setProperty('--cake-shadow', colors[1]);
+      }
+
+      function setCream(value) {
+        if (!creams[value]) return;
+        const colors = creams[value];
+        document.documentElement.style.setProperty('--cream-color', colors[0]);
+        document.documentElement.style.setProperty('--cream-shadow', colors[1]);
+      }
+
+      function setTopping(value) {
+        if (!toppings[value]) return;
+        const topping = toppings[value];
+        document.documentElement.style.setProperty('--topping-symbol', topping[0]);
+        document.documentElement.style.setProperty('--topping-color', topping[1]);
+      }
+
+      function selectRadio(name, value) {
+        const input = document.querySelector(`input[name="${name}"][value="${value}"]`);
+        if (!input) return false;
+        input.checked = true;
+        return true;
+      }
+
       // This helper replaces the selected pick's artwork, while keeping its position.
-      function applyPickDesign(slot, design) {
+      function cleanNumber(value) {
+        return value.replace(/\D/g, '').slice(0, 3) || '0';
+      }
+
+      function cleanBannerText(value) {
+        return value.trim().replace(/[|]/g, '').replace(/\s+/g, ' ').slice(0, 28) || 'HAPPY BIRTHDAY';
+      }
+
+      function applyPickDesign(slot, design, numberValue = numberInput.value, bannerText = bannerInput.value) {
         const isSelected = slot === selectedSlot;
         slot.className = `decoration-slot slot-${slot.dataset.slot} pick-${design}`;
         if (isSelected) slot.classList.add('selected');
-        slot.innerHTML = pickDesigns[design];
+        // A number pick stores its own value, so different cake picks can show different ages.
+        if (design === 'banner') {
+          delete slot.dataset.numberValue;
+          slot.dataset.bannerText = cleanBannerText(bannerText || bannerInput.value || 'HAPPY BIRTHDAY');
+          slot.innerHTML = '<span class="pick-art"></span>';
+          slot.querySelector('.pick-art').textContent = slot.dataset.bannerText;
+        } else if (design === 'number') {
+          delete slot.dataset.bannerText;
+          slot.dataset.numberValue = cleanNumber(numberValue || numberInput.value || '10');
+          slot.innerHTML = `<span class="pick-art">${slot.dataset.numberValue}</span>`;
+        } else {
+          delete slot.dataset.bannerText;
+          delete slot.dataset.numberValue;
+          slot.innerHTML = `<span class="pick-art">${pickDesigns[design]}</span>`;
+        }
         slot.setAttribute('aria-label', `${design} cake pick ${slot.dataset.slot}${isSelected ? ', selected' : ''}`);
       }
 
@@ -304,6 +438,8 @@
           selectedSlot = slot;
           selectedSlot.classList.add('selected');
           selectedSlot.setAttribute('aria-label', `Cake pick ${selectedSlot.dataset.slot}, selected`);
+          if (selectedSlot.classList.contains('pick-number')) numberInput.value = selectedSlot.dataset.numberValue || '10';
+          if (selectedSlot.classList.contains('pick-banner')) bannerInput.value = selectedSlot.dataset.bannerText || 'HAPPY BIRTHDAY';
           spotHelp.textContent = `Cake pick ${selectedSlot.dataset.slot} is selected. Choose a design or upload your own image.`;
         });
       });
@@ -316,6 +452,25 @@
           applyPickDesign(selectedSlot, button.dataset.design);
           spotHelp.textContent = `${label} is now in cake pick ${selectedSlot.dataset.slot}. Choose another pick to build a layered set.`;
         });
+      });
+
+      // INPUT: type a number after choosing the Number cake pick.
+      // OUTPUT: only the selected number badge updates right away.
+      numberInput.addEventListener('input', () => {
+        numberInput.value = numberInput.value.replace(/\D/g, '').slice(0, 3);
+        if (!selectedSlot.classList.contains('pick-number')) return;
+        const value = cleanNumber(numberInput.value);
+        selectedSlot.dataset.numberValue = value;
+        selectedSlot.querySelector('.pick-art').textContent = value;
+      });
+
+      // INPUT: type a short message after choosing the Banner cake pick.
+      // OUTPUT: only the selected banner updates right away.
+      bannerInput.addEventListener('input', () => {
+        if (!selectedSlot.classList.contains('pick-banner')) return;
+        const text = cleanBannerText(bannerInput.value);
+        selectedSlot.dataset.bannerText = text;
+        selectedSlot.querySelector('.pick-art').textContent = text;
       });
 
       // INPUT: the user picks an image file.
@@ -331,7 +486,7 @@
 
         const imageUrl = URL.createObjectURL(chosenFile);
         selectedSlot.className = `decoration-slot slot-${selectedSlot.dataset.slot} pick-photo selected`;
-        selectedSlot.innerHTML = `<img src="${imageUrl}" alt="Uploaded cake decoration" />`;
+        selectedSlot.innerHTML = `<span class="pick-art"><img src="${imageUrl}" alt="Uploaded cake decoration" /></span>`;
         selectedSlot.setAttribute('aria-label', `Uploaded image in cake pick ${selectedSlot.dataset.slot}, selected`);
         fileStatus.textContent = `Ready! ${chosenFile.name} is now in cake pick ${selectedSlot.dataset.slot}.`;
       });
@@ -346,9 +501,7 @@
       // OUTPUT: CSS variables change the cake's two pink/shadow colors.
       document.querySelectorAll('input[name="flavor"]').forEach((flavorInput) => {
         flavorInput.addEventListener('change', () => {
-          const selectedColors = flavors[flavorInput.value];
-          document.documentElement.style.setProperty('--cake', selectedColors[0]);
-          document.documentElement.style.setProperty('--cake-shadow', selectedColors[1]);
+          setFlavor(flavorInput.value);
         });
       });
 
@@ -356,19 +509,84 @@
       // OUTPUT: CSS variables repaint the cake's top surface immediately.
       document.querySelectorAll('input[name="cream"]').forEach((creamInput) => {
         creamInput.addEventListener('change', () => {
-          const selectedCream = creams[creamInput.value];
-          document.documentElement.style.setProperty('--cream-color', selectedCream[0]);
-          document.documentElement.style.setProperty('--cream-shadow', selectedCream[1]);
+          setCream(creamInput.value);
         });
       });
 
       document.querySelectorAll('input[name="topping"]').forEach((toppingInput) => {
         toppingInput.addEventListener('change', () => {
-          const selectedTopping = toppings[toppingInput.value];
-          document.documentElement.style.setProperty('--topping-symbol', selectedTopping[0]);
-          document.documentElement.style.setProperty('--topping-color', selectedTopping[1]);
+          setTopping(toppingInput.value);
         });
       });
+
+      // INPUT: click Create share link.
+      // OUTPUT: the current cake settings are written into the URL, ready to copy.
+      function makeShareLink() {
+        const url = new URL(window.location.href);
+        url.search = '';
+        url.hash = '';
+        const params = url.searchParams;
+        params.set('wish', '1');
+        params.set('flavor', document.querySelector('input[name="flavor"]:checked').value);
+        params.set('cream', document.querySelector('input[name="cream"]:checked').value);
+        params.set('topping', document.querySelector('input[name="topping"]:checked').value);
+        params.set('message', messageInput.value.trim());
+
+        const pickList = [...decorationSlots].map((slot, index) => {
+          const designClass = [...slot.classList].find((className) => className.startsWith('pick-'));
+          // A local uploaded picture cannot travel in a short URL, so friends see a party pick instead.
+          return designClass === 'pick-photo' ? defaultDesigns[index] : designClass.replace('pick-', '');
+        });
+        params.set('picks', pickList.join(','));
+        params.set('numbers', [...decorationSlots].map((slot) => slot.dataset.numberValue || '').join(','));
+        params.set('banners', [...decorationSlots].map((slot) => slot.dataset.bannerText || '').join('|'));
+        return url.toString();
+      }
+
+      function applySharedCake() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('wish') !== '1') return;
+
+        const flavor = params.get('flavor');
+        const cream = params.get('cream');
+        const topping = params.get('topping');
+        if (selectRadio('flavor', flavor)) setFlavor(flavor);
+        if (selectRadio('cream', cream)) setCream(cream);
+        if (selectRadio('topping', topping)) setTopping(topping);
+
+        const sharedPicks = (params.get('picks') || '').split(',');
+        const sharedNumbers = (params.get('numbers') || '').split(',');
+        const sharedBanners = (params.get('banners') || '').split('|');
+        sharedPicks.forEach((design, index) => {
+          if (pickDesigns[design] && decorationSlots[index]) applyPickDesign(decorationSlots[index], design, sharedNumbers[index], sharedBanners[index]);
+        });
+
+        messageInput.value = params.get('message') || '';
+        characterCount.textContent = messageInput.value.length;
+        fileStatus.textContent = 'This is a shared cake. Choose a pick and make a wish!';
+      }
+
+      shareButton.addEventListener('click', () => {
+        shareLink.value = makeShareLink();
+        shareBox.hidden = false;
+        shareStatus.textContent = window.location.protocol === 'file:'
+          ? 'This link works as a local preview. Publish the site before sending it to friends.'
+          : 'Your friend will see this cake with candles lit, ready to make a wish.';
+      });
+
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(shareLink.value);
+          shareStatus.textContent = 'Copied! Send the link to a friend.';
+        } catch {
+          shareLink.select();
+          document.execCommand('copy');
+          shareStatus.textContent = 'Link selected and copied. Send it to a friend.';
+        }
+      });
+
+      // When a friend opens a shared URL, build their saved cake before they make a wish.
+      applySharedCake();
 
       // This function creates colorful paper pieces for our short confetti animation.
       function launchConfetti() {
@@ -401,6 +619,8 @@
       // OUTPUT: the form, cake, candles, and celebration return to their starting state.
       resetButton.addEventListener('click', () => {
         photoInput.value = '';
+        numberInput.value = '10';
+        bannerInput.value = 'HAPPY BIRTHDAY';
         selectedSlot.classList.remove('selected');
         selectedSlot = document.querySelector('[data-slot="1"]');
         decorationSlots.forEach((slot, index) => applyPickDesign(slot, defaultDesigns[index]));
@@ -414,6 +634,9 @@
         celebrationCard.classList.remove('show');
         wishButton.textContent = '✨ Make a Wish';
         wishButton.disabled = false;
+        shareBox.hidden = true;
+        shareLink.value = '';
+        shareStatus.textContent = '';
         document.querySelectorAll('.confetti').forEach((piece) => piece.remove());
         document.querySelector('input[name="flavor"][value="strawberry"]').checked = true;
         document.documentElement.style.setProperty('--cake', flavors.strawberry[0]);
