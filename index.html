@@ -162,6 +162,17 @@
       .pick-party .pick-art { border: 4px solid #fff; border-radius: 50% 50% 43% 43%; background: radial-gradient(circle at 33% 42%, #33263a 0 3px, transparent 4px), radial-gradient(circle at 67% 42%, #33263a 0 3px, transparent 4px), #e6b1c3; box-shadow: inset 0 -13px #cf849d, 0 3px #a85f78; }
       .pick-photo .pick-art { overflow: hidden; border: 5px solid #f7d166; border-radius: 50%; background: #fff6d9; }
       .pick-photo .pick-art img { width: 100%; height: 100%; }
+      /* A narrow, upright three-balloon cluster. The emoji text is hidden; the CSS shapes do the storytelling. */
+      .pick-balloon { width: 84px; height: 100px; }
+      .pick-balloon .pick-art { position: relative; z-index: 1; width: 62px; height: 76px; overflow: visible; border: 3px solid #fff; border-radius: 52% 48% 46% 46%; background: radial-gradient(circle at 31% 25%, #fff9 0 5px, transparent 6px), linear-gradient(145deg, #9dc6ee, #638fc6); box-shadow: 0 4px 0 #4975af, 0 7px 9px #42648b33; color: transparent; font-size: 0; }
+      .pick-balloon .pick-art::before, .pick-balloon .pick-art::after { content: ""; position: absolute; z-index: -1; border: 3px solid #fff; border-radius: 52% 48% 46% 46%; box-shadow: 0 3px 0 #ad617b; }
+      .pick-balloon .pick-art::before { top: 16px; left: -14px; width: 44px; height: 57px; background: radial-gradient(circle at 31% 25%, #fff9 0 4px, transparent 5px), linear-gradient(145deg, #f6b1c3, #e5799a); }
+      .pick-balloon .pick-art::after { top: 13px; right: -14px; width: 44px; height: 59px; background: radial-gradient(circle at 31% 25%, #fff9 0 4px, transparent 5px), linear-gradient(145deg, #ffe79a, #efbf48); box-shadow: 0 3px 0 #b99235; }
+      .pick-balloon::before { content: ""; position: absolute; z-index: 2; top: 77px; left: 50%; width: 10px; height: 10px; border-radius: 2px; background: #5479a8; transform: translateX(-50%) rotate(45deg); }
+      .pick-balloon::after { content: ""; position: absolute; z-index: 1; top: 85px; left: 50%; width: 12px; height: 18px; border-right: 2px solid #bd914d; border-radius: 50%; transform: translateX(-45%) rotate(22deg); }
+      /* Party Pal is deliberately just one clear cat topper, with no badge behind it. */
+      .pick-party { width: 82px; height: 90px; }
+      .pick-party .pick-art { width: 100%; height: 100%; border: 0; border-radius: 0; background: transparent; box-shadow: none; color: initial; font-size: 4.25rem; line-height: 1; text-shadow: 0 3px 3px #5f415833; }
       /* Only the artwork leans. Each button keeps its stable click target. */
       .slot-1 .pick-art { transform: rotate(-5deg); transform-origin: 50% 90%; }
       .slot-3 .pick-art { transform: rotate(5deg); transform-origin: 50% 90%; }
