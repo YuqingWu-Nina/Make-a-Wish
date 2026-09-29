@@ -1,66 +1,50 @@
 # Make a Wish! — Design Plan
 
-## What we are making
+## Project idea
 
-**Make a Wish!** is a small, playful browser-based Birthday Cake Maker. It lets someone create a personalized digital birthday surprise for another person.
+**Make a Wish!** is a small browser-based birthday-cake maker. It gives someone a playful way to personalize a cake and turn it into a short digital birthday surprise.
 
-## The main experience
+## Intended experience
 
-1. The user sees a colorful birthday cake with lit candles.
-2. They upload one image from their computer.
-3. The image appears above the cake as a round decorative topper with a gold border and a small stick.
-4. They type a short birthday message (up to about 80 characters).
-5. They click **Make a Wish**.
-6. The candles turn off, confetti falls, and the birthday message appears in a celebration card beside or below the cake.
+The creator builds a cake with choices that are easy to understand: flavor, cream, topping, cake picks, an optional local image, and a birthday message. The key moment happens when the candles are blown out and the message appears with confetti.
 
-## Small personalization choices
+The project also includes a darker **mock recipient preview**. It demonstrates what a recipient would experience after opening a birthday-cake link, while staying honest that this front-end project does not provide real online storage or delivery.
 
-- Choose one of a few cake colors/flavors: Strawberry, Vanilla, Chocolate, or Blueberry.
-- Upload a photo for the cake topper.
-- Write a short custom birthday message.
+## Current interaction flow
 
-## Polish details
+1. Choose a cake flavor, cream flavor, and topping style.
+2. Choose one of six fixed cake-pick spots.
+3. Add a preset pick, customize a number or banner, or replace the selected pick with one local image.
+4. Write a short birthday message.
+5. Select **Make a Wish** to extinguish the candles, show confetti, and reveal the message.
+6. Select **Create share link** to make a mock recipient-preview URL.
+7. In recipient preview, select **Blow Out the Candles** to brighten the scene, show confetti, and reveal the saved message.
 
-- The main button changes to **Wish Made!** after it is clicked, so the animation does not replay accidentally.
-- A **Make Another Cake** button resets the page for a new surprise.
-- The photo stays in the browser only; it is not uploaded to a server.
+## Visual direction
 
-## What we will not build in the first version
+- A warm pastel palette of pink, cream, lavender, pale gold, and soft blue.
+- A centered layered cluster of six cake picks: banner, number, balloons, star, cat, and gift.
+- Separate wooden-stick layers behind the cream surface, so the picks look inserted into the cake.
+- A calm party-room display background made with CSS: a soft gradient, subtle bunting, faint edge balloons, sparse sparkles, dots, and a glow under the cake.
+- A darker but still readable version of the same atmosphere for recipient preview.
 
-- User accounts or saved cakes.
-- Sending emails or messages.
-- Online sharing features.
-- Real music or complicated sound controls.
+## Technical choices
 
-Keeping the first version small will help us finish, test, and explain one complete interaction well.
+- One `index.html` file keeps the HTML, CSS, and JavaScript together for this beginner learning project.
+- Fixed topper positions are used instead of drag-and-drop so the arrangement stays intentional and the interaction remains easy to test.
+- CSS variables update cake, cream, and topping colors without needing external assets.
+- A local image uses `URL.createObjectURL()`, which keeps it in the current browser rather than uploading it to a server.
+- The mock recipient URL stores preset choices and the message in URL parameters.
 
-## Saved milestone: Version 2.0
+## Current limitations
 
-Version 2.0 is the current saved version. It adds seven cake flavors and six fixed decoration spots, where a user can choose a preset sign or upload one personal image.
+- The mock recipient link is a front-end demonstration, not a real sharing service.
+- Uploaded images stay private in the creator's browser and are not included in the mock URL.
+- The project has no accounts, saved cakes, email delivery, or backend storage.
+- Automatic image extraction or background removal is not included.
 
-## Next design direction: layered cake-pick set
+## Possible future exploration
 
-The next version will replace the matching round decoration spots with a small collection of **different die-cut cake picks**, inspired by real birthday cake toppers.
-
-### Visual idea
-
-- Each pick has its own silhouette and pattern, such as a party-hat sign, curved “Happy Birthday” banner, balloon bunch, star, age/number badge, gift, or character face.
-- Each pick has a visible wooden stick that appears inserted into the cake.
-- Picks are arranged in three visual layers: tall picks at the back, a large feature pick in the middle, and smaller picks at the front.
-- The picks overlap slightly to feel like one celebratory arrangement instead of six separate buttons.
-
-### Cake customization ideas
-
-1. **Cake flavor**: choose the cake color/base flavor.
-2. **Cream flavor**: choose a frosting style and color, for example vanilla whipped cream, strawberry pink cream, chocolate swirl, or matcha cream.
-3. **Top decorations**: choose one light sprinkle layer, such as rainbow sprinkles, berries, candy pearls, cookie crumbs, or fruit cubes.
-
-### Suggested build order
-
-1. Redraw the cake as a more realistic small cylinder with a visible top surface.
-2. Add cream style and sprinkle choices to that top surface.
-3. Build a small preset library of different-shaped picks with CSS and emoji/text artwork.
-4. Place those picks in fixed back/middle/front positions.
-5. Keep custom-image upload as an optional replacement for one selected pick.
-
-We will still avoid automatic background removal for now. Good image extraction needs larger image-processing tools or an external AI service, while this project is designed to work fully in the browser without accounts or a backend.
+- User testing and accessibility review.
+- Hosting the project with GitHub Pages.
+- A real sharing workflow only after planning secure image storage and privacy.
