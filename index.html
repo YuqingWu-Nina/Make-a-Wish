@@ -37,6 +37,7 @@
       /* A wider desktop canvas gives the choice chips room to stay readable.
          The buttons keep their friendly size; the extra width simply prevents extra rows. */
       .page-shell { width: min(1360px, 94%); margin: 0 auto; padding: 3.5rem 0 4rem; }
+      .project-footer { margin: 4rem auto 0; padding: 0 1rem 1rem; color: #8a6d86; font-size: .8rem; line-height: 1.45; text-align: center; }
       header { text-align: center; margin-bottom: 2.7rem; }
       .eyebrow { margin: 0 0 .6rem; color: var(--pink-dark); font-size: .84rem; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; }
       h1 { margin: 0; color: #5a3147; font-family: Georgia, serif; font-size: clamp(2.8rem, 7vw, 4.8rem); letter-spacing: -.05em; line-height: 1; text-shadow: 0 3px #fff, 0 6px #efc7d1; }
@@ -78,6 +79,7 @@
       .share-row { display: flex; gap: .5rem; }
       .share-link { min-width: 0; flex: 1; padding: .65rem .7rem; border: 1px solid #d7c8e8; border-radius: 10px; color: #5c4c72; background: #fff; font: inherit; font-size: .78rem; }
       .copy-button { padding: .65rem .8rem; color: #5a4773; background: #e8def6; font-size: .82rem; }
+      .recipient-preview-button { margin-top: .65rem; padding: .65rem .85rem; color: #fff; background: #6d79bd; font-size: .82rem; }
       .share-status { margin: .55rem 0 0; color: #766487; font-size: .78rem; line-height: 1.35; }
       .finish-panel { display: grid; grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr); gap: clamp(1.2rem, 4vw, 2.5rem); margin-top: 1.25rem; padding: clamp(1.3rem, 4vw, 2rem); background: rgba(255, 255, 255, .84); }
       .finish-panel h2 { margin: 0; font-family: Georgia, serif; font-size: 1.65rem; }
@@ -136,11 +138,55 @@
       .celebration-card strong { display: block; margin-bottom: .28rem; color: var(--pink-dark); }
       .confetti { position: absolute; z-index: 7; top: -20px; width: 10px; height: 18px; border-radius: 2px; opacity: 0; }
       .confetti.fall { animation: fall 1.8s ease-in forwards; }
-      /* Visual polish: a patterned celebration-card backdrop and richer pick artwork. */
-      .cake-stage { background: radial-gradient(circle at 50% 45%, #fff 0 22%, transparent 58%), linear-gradient(180deg, #fffdf9, #f9edf0); }
-      .cake-stage::before { content: ""; position: absolute; inset: 0; opacity: .45; background: radial-gradient(#e6b6c3 1px, transparent 1px) 0 0 / 22px 22px; pointer-events: none; }
+      /* The preview gets a quiet party-room backdrop. All of these decorations stay behind the cake. */
+      .cake-stage { background: radial-gradient(ellipse at 50% 46%, #fffdfd 0 18%, #fdeef1 49%, #e9ddec 100%); }
+      .cake-stage::before { content: ""; position: absolute; z-index: 0; inset: 0; opacity: .48; background: radial-gradient(#d9aec0 .8px, transparent 1.3px) 0 0 / 26px 26px, radial-gradient(ellipse at center, transparent 46%, #b68ca633 100%); pointer-events: none; }
+      .stage-atmosphere { position: absolute !important; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; }
+      .party-bunting { position: absolute; top: 3.55rem; left: 50%; display: flex; gap: .55rem; width: 282px; height: 43px; border-top: 2px solid #b28cac88; transform: translateX(-50%) rotate(-1deg); }
+      .party-bunting span { width: 31px; height: 29px; margin-top: -1px; clip-path: polygon(0 0, 100% 0, 50% 100%); background: #efb3c7; box-shadow: 0 2px 4px #81546618; }
+      .party-bunting span:nth-child(2), .party-bunting span:nth-child(5) { background: #bca9df; }
+      .party-bunting span:nth-child(3), .party-bunting span:nth-child(6) { background: #f2d587; }
+      .party-bunting span:nth-child(4) { background: #a7cdd1; }
+      .ambient-balloons { position: absolute; top: 23%; width: 76px; height: 166px; opacity: .25; filter: saturate(.78); }
+      .ambient-balloons::before, .ambient-balloons::after, .ambient-balloons span { position: absolute; width: 58px; height: 72px; border-radius: 52% 48% 46% 46%; box-shadow: inset 8px 8px 10px #fff8, 0 9px 16px #80576a1c; content: ""; }
+      .ambient-balloons::before { top: 24px; background: #edb2c5; }
+      .ambient-balloons::after { top: 58px; background: #aab9e4; }
+      .ambient-balloons span { top: 0; background: #f2d885; }
+      .balloons-left { left: -35px; transform: rotate(-9deg); }
+      .balloons-left::before { left: 22px; } .balloons-left::after { left: 2px; } .balloons-left span { left: 42px; }
+      .balloons-right { right: -35px; transform: scaleX(-1) rotate(-9deg); }
+      .balloons-right::before { left: 22px; } .balloons-right::after { left: 2px; } .balloons-right span { left: 42px; }
+      .table-glow { position: absolute; bottom: 7.4rem; left: 50%; width: min(82%, 500px); height: 126px; border-radius: 50%; background: radial-gradient(ellipse, #fffdf7cc 0 24%, #f4dfe799 45%, transparent 72%); filter: blur(3px); transform: translateX(-50%); }
+      .stage-sparkles { position: absolute; inset: 100px 11% 115px; opacity: .46; background: radial-gradient(circle at 10% 22%, #f7d77e 0 2px, transparent 2.8px), radial-gradient(circle at 87% 17%, #c7b6ed 0 2px, transparent 2.8px), radial-gradient(circle at 7% 74%, #f6b4c6 0 1.5px, transparent 2.3px), radial-gradient(circle at 93% 68%, #f7d77e 0 1.5px, transparent 2.3px); }
+      .cake-scene { z-index: 1; }
       .cake-stage > * { position: relative; }
       .cake-stage > .stage-label, .cake-stage > .celebration-card { position: absolute; }
+      .cake-stage > .stage-label { z-index: 6; }
+      .recipient-wish-button { position: absolute; z-index: 9; bottom: 1.6rem; left: 50%; color: #563b49; background: linear-gradient(135deg, #ffd86b, #ffae9d); box-shadow: 0 10px 22px rgba(218, 145, 82, .3); transform: translateX(-50%); }
+      .recipient-wish-button:hover { transform: translateX(-50%) translateY(-2px); }
+      /* The recipient URL is a front-end-only mock of opening a birthday surprise. */
+      body.recipient-mode { color: #fff7fb; background: radial-gradient(circle at 50% 24%, #5f447a 0, #2d203f 42%, #130f20 100%); transition: background .8s ease, color .8s ease; }
+      body.recipient-mode .page-shell { width: min(940px, 94%); padding-top: 2.3rem; }
+      body.recipient-mode header { margin-bottom: 1.3rem; }
+      body.recipient-mode .eyebrow, body.recipient-mode .subtitle { color: #f6d9ff; }
+      body.recipient-mode h1 { color: #fff9df; text-shadow: 0 3px #5b3f70, 0 8px #24142e; }
+      body.recipient-mode .panel, body.recipient-mode .finish-panel { display: none; }
+      body.recipient-mode .maker { display: block; }
+      body.recipient-mode .cake-stage { height: min(690px, 76vh); border-color: #d5b5ed66; background: radial-gradient(ellipse at 50% 49%, #5f4877 0 18%, #382948 54%, #22182e 100%); box-shadow: 0 28px 65px #08051088; }
+      body.recipient-mode .cake-stage::before { opacity: .35; background: radial-gradient(#d7c6ec88 .8px, transparent 1.3px) 0 0 / 26px 26px, radial-gradient(ellipse at center, transparent 42%, #08051088 100%); }
+      body.recipient-mode .party-bunting { border-color: #decdf055; opacity: .6; }
+      body.recipient-mode .ambient-balloons { opacity: .16; filter: saturate(.55); }
+      body.recipient-mode .table-glow { background: radial-gradient(ellipse, #bca8d766 0 22%, #7b5e9b44 48%, transparent 72%); }
+      body.recipient-mode .stage-sparkles { opacity: .34; }
+      body.recipient-mode .stage-label { color: #f6d9ff; }
+      body.recipient-mode .cake-scene { transform: scale(1.06); transform-origin: center; }
+      body.recipient-mode .project-footer { color: #dec8ea; }
+      body.recipient-mode.recipient-revealed { color: var(--ink); background: radial-gradient(circle at 50% 20%, #fff7cf 0, #fff2f0 45%, #f3edff 100%); }
+      body.recipient-mode.recipient-revealed .eyebrow, body.recipient-mode.recipient-revealed .subtitle { color: #806675; }
+      body.recipient-mode.recipient-revealed h1 { color: #5a3147; text-shadow: 0 3px #fff, 0 6px #efc7d1; }
+      body.recipient-mode.recipient-revealed .cake-stage { border-color: rgba(121, 79, 100, .14); background: radial-gradient(circle at 50% 45%, #fff 0 22%, transparent 58%), linear-gradient(180deg, #fffdf9, #f9edf0); box-shadow: 0 22px 48px rgba(136, 94, 117, .14); }
+      body.recipient-mode.recipient-revealed .stage-label { color: var(--pink-dark); }
+      body.recipient-mode.recipient-revealed .project-footer { color: #8a6d86; }
       .preset-button { background: linear-gradient(155deg, #fff, #fff3f4); box-shadow: 0 3px 0 #e7d1d8; }
       .decoration-slot { text-shadow: 0 1px 1px #462e52aa; }
       .pick-banner { width: 150px; height: 64px; border: 3px solid #fff; background: repeating-linear-gradient(135deg, #4864b4 0 10px, #3651a0 10px 20px); box-shadow: 0 3px #203676; font-size: .92rem; letter-spacing: .06em; }
@@ -187,7 +233,7 @@
       @keyframes fall { 0% { opacity: 1; transform: translate(0, -25px) rotate(0); } 100% { opacity: 1; transform: translate(var(--drift), 670px) rotate(520deg); } }
       @media (max-width: 1100px) { .maker { grid-template-columns: minmax(390px, .94fr) minmax(400px, 1.06fr); } }
       @media (max-width: 900px) { .maker, .finish-panel { grid-template-columns: 1fr; } .cake-stage { height: 600px; min-height: 0; } }
-      @media (max-width: 470px) { .page-shell { width: min(94%, 1120px); padding-top: 2.4rem; } .cake-scene { transform: scale(.82); transform-origin: center; margin-bottom: -70px; } .celebration-card { right: 1rem; bottom: 1rem; max-width: 190px; } }
+      @media (max-width: 470px) { .page-shell { width: min(94%, 1120px); padding-top: 2.4rem; } .cake-scene { transform: scale(.82); transform-origin: center; margin-bottom: -70px; } .party-bunting { top: 3.35rem; width: 220px; gap: .4rem; transform: translateX(-50%) scale(.78); } .ambient-balloons { opacity: .18; } .celebration-card { right: 1rem; bottom: 1rem; max-width: 190px; } }
     </style>
   </head>
   <body>
@@ -262,6 +308,13 @@
 
         <section class="cake-stage" aria-label="Your birthday cake preview">
           <p class="stage-label">Your cake preview</p>
+          <div class="stage-atmosphere" aria-hidden="true">
+            <div class="party-bunting"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="ambient-balloons balloons-left"><span></span></div>
+            <div class="ambient-balloons balloons-right"><span></span></div>
+            <div class="table-glow"></div>
+            <div class="stage-sparkles"></div>
+          </div>
           <div class="cake-scene" id="cake-scene">
             <div class="pick-stick-layer" aria-hidden="true">
               <span class="pick-stick stick-1"></span><span class="pick-stick stick-2"></span><span class="pick-stick stick-3"></span>
@@ -280,6 +333,7 @@
             </div>
             <div class="cake-top"></div><div class="cake-bottom"></div><div class="plate"></div>
           </div>
+          <button class="recipient-wish-button" id="recipient-wish-button" type="button" hidden>Blow Out the Candles</button>
           <div class="celebration-card" id="celebration-card" aria-live="polite"><strong>Wish made! 🎉</strong><span id="celebration-message"></span></div>
         </section>
       </section>
@@ -313,12 +367,14 @@
             <small class="share-limit">Presets and message only for now; uploaded photos stay private.</small>
           </div>
           <div class="share-box" id="share-box" hidden>
-            <label for="share-link">Your cake link</label>
+            <label for="share-link">Your mock recipient link</label>
             <div class="share-row"><input class="share-link" id="share-link" readonly /><button class="copy-button" id="copy-button" type="button">Copy</button></div>
+            <button class="recipient-preview-button" id="recipient-preview-button" type="button">Open mock recipient preview</button>
             <p class="share-status" id="share-status" aria-live="polite"></p>
           </div>
         </section>
       </section>
+      <footer class="project-footer">Nina Wu · MSTU 5003/5013 Course Project</footer>
     </main>
 
     <script>
@@ -337,13 +393,18 @@
       const shareBox = document.querySelector('#share-box');
       const shareLink = document.querySelector('#share-link');
       const copyButton = document.querySelector('#copy-button');
+      const recipientPreviewButton = document.querySelector('#recipient-preview-button');
       const shareStatus = document.querySelector('#share-status');
+      const recipientWishButton = document.querySelector('#recipient-wish-button');
       const cakeScene = document.querySelector('#cake-scene');
       const candles = document.querySelectorAll('.candle');
       const celebrationCard = document.querySelector('#celebration-card');
       const celebrationMessage = document.querySelector('#celebration-message');
       const decorationSlots = document.querySelectorAll('.decoration-slot');
       const presetButtons = document.querySelectorAll('.preset-button');
+      const stageLabel = document.querySelector('.stage-label');
+      const eyebrow = document.querySelector('.eyebrow');
+      const subtitle = document.querySelector('.subtitle');
       let selectedSlot = document.querySelector('.decoration-slot.selected');
 
       // These color pairs are used when a person chooses a different cake flavor.
@@ -531,12 +592,13 @@
       });
 
       // INPUT: click Create share link.
-      // OUTPUT: the current cake settings are written into the URL, ready to copy.
+      // OUTPUT: the current cake settings become a front-end-only recipient preview URL.
       function makeShareLink() {
         const url = new URL(window.location.href);
         url.search = '';
         url.hash = '';
         const params = url.searchParams;
+        params.set('mode', 'recipient');
         params.set('wish', '1');
         params.set('flavor', document.querySelector('input[name="flavor"]:checked').value);
         params.set('cream', document.querySelector('input[name="cream"]:checked').value);
@@ -575,25 +637,39 @@
         messageInput.value = params.get('message') || '';
         characterCount.textContent = messageInput.value.length;
         fileStatus.textContent = 'This is a shared cake. Choose a pick and make a wish!';
+
+        if (params.get('mode') === 'recipient') enterRecipientMode();
+      }
+
+      // This changes the same page into the birthday recipient's small surprise view.
+      function enterRecipientMode() {
+        document.body.classList.add('recipient-mode');
+        recipientWishButton.hidden = false;
+        recipientWishButton.disabled = false;
+        eyebrow.textContent = 'A birthday surprise for you';
+        subtitle.textContent = 'Make a wish, then blow out the candles.';
+        stageLabel.textContent = 'A birthday surprise';
       }
 
       shareButton.addEventListener('click', () => {
         shareLink.value = makeShareLink();
         shareBox.hidden = false;
-        shareStatus.textContent = window.location.protocol === 'file:'
-          ? 'This link works as a local preview. Publish the site before sending it to friends.'
-          : 'Your friend will see this cake with candles lit, ready to make a wish.';
+        shareStatus.textContent = 'This is a mock share link for the class prototype. Open it in this browser to preview the birthday recipient’s experience.';
       });
 
       copyButton.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(shareLink.value);
-          shareStatus.textContent = 'Copied! Send the link to a friend.';
+          shareStatus.textContent = 'Mock link copied. It previews the class prototype in this browser.';
         } catch {
           shareLink.select();
           document.execCommand('copy');
-          shareStatus.textContent = 'Link selected and copied. Send it to a friend.';
+          shareStatus.textContent = 'Mock link selected and copied. It previews the class prototype in this browser.';
         }
+      });
+
+      recipientPreviewButton.addEventListener('click', () => {
+        window.location.href = shareLink.value || makeShareLink();
       });
 
       // When a friend opens a shared URL, build their saved cake before they make a wish.
@@ -615,16 +691,20 @@
         }
       }
 
-      // INPUT: click the Make a Wish button.
+      // INPUT: click either wish button.
       // OUTPUT: flames disappear, confetti falls, and the message card appears.
-      wishButton.addEventListener('click', () => {
+      function makeWish(button, isRecipient = false) {
         candles.forEach((candle) => candle.classList.add('off'));
         celebrationMessage.textContent = messageInput.value.trim() || 'Hope your birthday is sprinkled with happiness!';
         celebrationCard.classList.add('show');
-        wishButton.textContent = '🎉 Wish Made!';
-        wishButton.disabled = true;
+        button.textContent = '🎉 Wish Made!';
+        button.disabled = true;
+        if (isRecipient) document.body.classList.add('recipient-revealed');
         launchConfetti();
-      });
+      }
+
+      wishButton.addEventListener('click', () => makeWish(wishButton));
+      recipientWishButton.addEventListener('click', () => makeWish(recipientWishButton, true));
 
       // INPUT: click Make Another Cake.
       // OUTPUT: the form, cake, candles, and celebration return to their starting state.
